@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @congressman.name %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @congressman.photo %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @congressman.phone %>
+</p>
+
+<p>
+  <strong>Federation unity:</strong>
+  <%= @congressman.federation_unity %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @congressman.email %>
+</p>
+
+<p>
+  <strong>Political party:</strong>
+  <%= @congressman.political_party.name %>
+</p>
+
+<%= link_to 'Edit', edit_congressman_path(@congressman) %> |
+<%= link_to 'Back', congressmen_path %>

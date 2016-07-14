@@ -10,6 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160714013211) do
+
+  create_table "congressmen", force: :cascade do |t|
+    t.string   "name"
+    t.string   "photo"
+    t.string   "phone"
+    t.string   "federation_unity"
+    t.string   "email"
+    t.integer  "political_party_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["political_party_id"], name: "index_congressmen_on_political_party_id"
+  end
+
+  create_table "political_parties", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end
