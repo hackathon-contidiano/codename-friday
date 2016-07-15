@@ -27,7 +27,7 @@ parsed_json.each do |name, data|
   
   speeches = data['speeches']
   speeches.each do |key_word, count|
-    Speeche.create(key_word: key_word, count: count, congressman_id: congressman.id)
+    Speech.create(key_word: key_word, count: count, congressman_id: congressman.id)
   end
   
   congressman.reload
