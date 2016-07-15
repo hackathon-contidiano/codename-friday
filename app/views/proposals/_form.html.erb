@@ -1,0 +1,32 @@
+<%= form_for(proposal) do |f| %>
+  <% if proposal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(proposal.errors.count, "error") %> prohibited this proposal from being saved:</h2>
+
+      <ul>
+      <% proposal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :key_word %>
+    <%= f.text_field :key_word %>
+  </div>
+
+  <div class="field">
+    <%= f.label :count %>
+    <%= f.number_field :count %>
+  </div>
+
+  <div class="field">
+    <%= f.label :congressman_id %>
+    <%= f.text_field :congressman_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

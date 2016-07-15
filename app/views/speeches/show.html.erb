@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Key word:</strong>
+  <%= @speech.key_word %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @speech.count %>
+</p>
+
+<p>
+  <strong>Congressman:</strong>
+  <%= @speech.congressman %>
+</p>
+
+<%= link_to 'Edit', edit_speech_path(@speech) %> |
+<%= link_to 'Back', speeches_path %>

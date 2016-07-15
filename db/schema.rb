@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714013211) do
+ActiveRecord::Schema.define(version: 20160715013527) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "congressmen", force: :cascade do |t|
     t.string   "name"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160714013211) do
     t.integer  "political_party_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.index ["political_party_id"], name: "index_congressmen_on_political_party_id"
+    t.index ["political_party_id"], name: "index_congressmen_on_political_party_id", using: :btree
   end
 
   create_table "political_parties", force: :cascade do |t|
@@ -31,4 +34,25 @@ ActiveRecord::Schema.define(version: 20160714013211) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "proposals", force: :cascade do |t|
+    t.string   "key_word"
+    t.integer  "count"
+    t.integer  "congressman_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["congressman_id"], name: "index_proposals_on_congressman_id", using: :btree
+  end
+
+  create_table "speeches", force: :cascade do |t|
+    t.string   "key_word"
+    t.integer  "count"
+    t.integer  "congressman_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["congressman_id"], name: "index_speeches_on_congressman_id", using: :btree
+  end
+
+  add_foreign_key "congressmen", "political_parties"
+  add_foreign_key "proposals", "congressmen"
+  add_foreign_key "speeches", "congressmen"
 end
